@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.ListAdminFXMLController">
+     <children>
+     
+      <TableView fx:id="tab_clients" layoutX="180.0" layoutY="138.0" onMousePressed="#click_tab_clients" prefHeight="393.0" prefWidth="610.0" styleClass="TextField">
+         <columns>
+            <TableColumn fx:id="nom_id_cl" prefWidth="92.00000762939453" text="NOM" />
+            <TableColumn fx:id="prenom_id_cl" minWidth="8.0" prefWidth="95.99993896484375" text="PRENOM" />
+            <TableColumn fx:id="email_id_cl" prefWidth="161.60003662109375" text="EMAIL" />
+            <TableColumn fx:id="tel_id_cl" prefWidth="117.59994506835938" text="TEL" />
+            <TableColumn fx:id="adresse_id_cl" prefWidth="120.0" text="ADRESSE" />
+         </columns>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TableView>
+     <VBox layoutX="22.0" layoutY="138.0" prefHeight="393.0" prefWidth="133.0" AnchorPane.leftAnchor="22.0">
+         <children>
+            <Label fx:id="lbNom" text="Label" textFill="WHITE" />
+           
+         
+            <Button fx:id="liste_des_admins_nav" mnemonicParsing="false" onAction="#liste_des_admins_nav" prefHeight="54.0" prefWidth="152.0" style="-fx-background-color: #ffb320;" text="Liste des admins" textFill="WHITE">
+               <font>
+                  <Font name="MS Reference Sans Serif" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="40.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="liste_des_clients_nav" mnemonicParsing="false" onAction="#liste_des_clients_nav" prefHeight="54.0" prefWidth="152.0" style="-fx-background-color: #ffb320;" text="Liste des clients">
+               <font>
+                  <Font name="MS Reference Sans Serif" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="ajouter_admin_nav" mnemonicParsing="false" onAction="#ajouter_admin_nav" prefHeight="54.0" prefWidth="181.0" style="-fx-background-color: #ffb320;" text="Ajouter un admin">
+               <font>
+                  <Font name="MS Reference Sans Serif" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin>
+            </Button>
+            <Hyperlink onAction="#log_out" text="Déconnexion">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Hyperlink>
+         </children>
+      </VBox>
+      <TextField fx:id="tfRecherche" layoutX="475.0" layoutY="94.0" prefHeight="31.0" prefWidth="194.0" promptText="rechercher" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/footer-logo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="687.0" layoutY="94.0" mnemonicParsing="false" onAction="#rechercher" text="rechercher" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" right="20.0" />
+   </padding>
+</AnchorPane>
