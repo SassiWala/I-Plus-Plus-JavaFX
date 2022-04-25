@@ -17,7 +17,8 @@ import entities.Commande;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -44,14 +45,12 @@ public class CommandeFXMLController implements Initializable {
     private TableColumn<?, ?> clmMontant;
     @FXML
     private TableColumn<?, ?> clmUser;
-    @FXML
-    private Button btnAsc;
-    @FXML
-    private Button btnDesc;
     private TextField tfSearch;
     @FXML
     private TextField recherche;
     private final ObservableList<Commande> data = FXCollections.observableArrayList();
+    @FXML
+    private Button btnD;
 
     /**
      * Initializes the controller class.
@@ -120,4 +119,19 @@ public class CommandeFXMLController implements Initializable {
                 p.add("Commande",String.valueOf(A.getMontantCommande()),String.valueOf( A.getDateCommande()),A.getNomUser());
 
     }
+
+    @FXML
+    private void Details(ActionEvent event) throws IOException {
+        Commande p=tvCommande.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailsFXML.fxml"));
+        Parent root = loader.load();
+        btnD.getScene().setRoot(root);
+        DetailsFXMLController dc=loader.getController();
+        dc.setIdCmd(p.getId_commande());
+        System.err.println(p.getId_commande()+"eeeeehhhh");
+        dc.showDetails(p.getId_commande());
+    }
+
+
+    
 }

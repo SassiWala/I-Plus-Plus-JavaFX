@@ -34,7 +34,6 @@ public class PanierServices implements IServices<Panier>{
             String req = "INSERT INTO `panier` (`produit_id`,`nomProd`,`id_user`,`prixUnitaire`) VALUES ('" + p.getProduit_id()+ "','" + getNomProduit(p.getProduit_id())+ "','" + p.getUser_id()+ "','" + getPrixProduit(p.getProduit_id())+ "')";
              Statement st = cnx.createStatement();
             st.executeUpdate(req);
-            System.out.println("quantité updated !");
             System.out.println("produit passé created !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -84,7 +83,7 @@ System.out.println(list);
             Statement st = cnx.createStatement();
              ResultSet rs = st.executeQuery(req);
             while(rs.next()){
-           nom =rs.getString("nomProd");}
+           nom =rs.getString("nom_prod");}
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -284,4 +283,18 @@ System.out.println(list);
         
         return p.getQuantite() ;
     }
+      public String getEmailUser(int id){
+         String mail="";
+         try {
+            String req = "SELECT * FROM `user`  WHERE `user`.`id_user` =' " +id+"'";
+            Statement st = cnx.createStatement();
+             ResultSet rs = st.executeQuery(req);
+            while(rs.next()){
+           mail =rs.getString("email");}
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+         System.out.println(mail);
+         return mail ;
+     }
 }

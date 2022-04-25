@@ -26,7 +26,7 @@ public class LigneCommandeServices implements IServices<LigneCommande>{
     public void ajouter(LigneCommande p) {
          PanierServices ps=new PanierServices();
         try {
-            String req = "INSERT INTO `ligne_commande` (`quantite`,`produit_id`,`commande_matricule`) VALUES ('" + p.getQuantite()+ "','" + p.getId_produit()+ "','" + p.getId_commande()+ "')";
+            String req = "INSERT INTO `ligne_commande` (`quantite`,`produit_id`,`commande_matricule`,`nomProd`) VALUES ('" + p.getQuantite()+ "','" + p.getId_produit()+ "','" + p.getId_commande()+ "','" + getNomProduit(p.getId_produit())+ "')";
              Statement st = cnx.createStatement();
             st.executeUpdate(req);
             int q=ps.getQuantiteProd(p.getId_produit())-p.getQuantite();
@@ -57,7 +57,7 @@ public class LigneCommandeServices implements IServices<LigneCommande>{
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
             while(rs.next()){
-                LigneCommande p = new LigneCommande(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4));
+                LigneCommande p = new LigneCommande(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getString(5));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -67,5 +67,34 @@ public class LigneCommandeServices implements IServices<LigneCommande>{
         return list;
     }
     /////////////////////////////////////////////////////////////
-
+public String getNomProduit(int id){
+         String nom="";
+         try {
+            String req = "SELECT * FROM `prod`  WHERE `prod`.`id` =' " +id+"'";
+            Statement st = cnx.createStatement();
+             ResultSet rs = st.executeQuery(req);
+            while(rs.next()){
+           nom =rs.getString("nom_prod");}
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+         System.out.println(nom);
+         return nom ;
+     }
+ public List<LigneCommande> getByIdCommande(int id) {
+        List<LigneCommande> list = new ArrayList<>();
+        try {
+            String req = "Select * from ligne_commande WHERE `ligne_commande`.`commande_matricule` =' " +id+"'";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while(rs.next()){
+                LigneCommande p = new LigneCommande(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getString(5));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+ System.out.println(list);
+        return list;
+    }
 }

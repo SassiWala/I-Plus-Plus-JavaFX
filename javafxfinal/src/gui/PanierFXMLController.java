@@ -30,7 +30,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import services.PanierServices;
-import javafxfinal.SmsTester;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 

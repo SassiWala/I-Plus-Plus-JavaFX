@@ -14,7 +14,24 @@ public class LigneCommande {
     private int quantite;
     private int id_commande;
     private int id_produit;
-    private int id_user;
+    private String nomProd;
+
+    
+    
+    public String getNomProd() {
+        return nomProd;
+    }
+
+    public void setNomProd(String nomProd) {
+        this.nomProd = nomProd;
+    }
+
+    @Override
+    public String toString() {
+        return "LigneCommande{" + "id_ligne=" + id_ligne + ", quantite=" + quantite + ", id_commande=" + id_commande + ", id_produit=" + id_produit + ", nomProd=" + nomProd + '}';
+    }
+    
+    
 
     public LigneCommande(int id_ligne, int quantite, int id_commande, int id_produit) {
         this.id_ligne = id_ligne;
@@ -26,13 +43,15 @@ public class LigneCommande {
     public LigneCommande() {
     }
 
-    public int getId_user() {
-        return id_user;
+    public LigneCommande(int id_ligne, int quantite, int id_commande, int id_produit, String nomProd) {
+        this.id_ligne = id_ligne;
+        this.quantite = quantite;
+        this.id_commande = id_commande;
+        this.id_produit = id_produit;
+        this.nomProd = nomProd;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
-    }
+  
     
     
     public int getId_ligne() {
@@ -71,6 +90,14 @@ public class LigneCommande {
         this.quantite = quantite;
         this.id_commande = id_commande;
         this.id_produit = id_produit;
+    }
+
+    public LigneCommande(int id_ligne, int quantite, int id_commande, int id_produit, int id_user, String nomProd) {
+        this.id_ligne = id_ligne;
+        this.quantite = quantite;
+        this.id_commande = id_commande;
+        this.id_produit = id_produit;
+        this.nomProd = nomProd;
     }
     
     

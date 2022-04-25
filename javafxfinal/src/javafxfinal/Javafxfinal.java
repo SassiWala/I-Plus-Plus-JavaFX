@@ -13,10 +13,14 @@ import entities.Panier;
 import services.CommandeServices;
 import services.LigneCommandeServices;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+
 
 /**
  *
@@ -27,7 +31,7 @@ public class Javafxfinal {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MalformedURLException, IOException,UnsupportedEncodingException {
         // TODO code application logic here
         MyConnection mc2 = MyConnection.getInstance();
         Panier p1=new Panier(2,8,1);
@@ -48,14 +52,15 @@ public class Javafxfinal {
         //cs.getNomUser(1);
         //cs.ajouter(cmd);
         //cs.getLastCmd();
-        //cs.getAll().toString();
+        //cs.getAll();
        // cs.OrderByAsc();
         //cs.OrderByDesc();
         LigneCommande lc=new LigneCommande(2, 1, 1);
         LigneCommandeServices lcs=new LigneCommandeServices();
         //lcs.getAll().toString();
         //lcs.ajouter(lc);
-        
+        //lcs.getNomProduit(1);
+        lcs.getByIdCommande(42);
     }
     
 }
