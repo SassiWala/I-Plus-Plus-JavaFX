@@ -16,8 +16,13 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import pidev.entities.User;
 import pidev.services.ServiceUser;
 
@@ -50,13 +55,15 @@ public class UserInfoFXMLController implements Initializable {
     private Hyperlink log_out;
     @FXML
     private Label lbNumTel;
+    @FXML
+    private Circle picture_id;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
     }
 
     public void show_data(String id) {
@@ -68,6 +75,12 @@ public class UserInfoFXMLController implements Initializable {
         lbEmail.setText(cl.getEmail());
         lbMdp.setText("*********");
         lbNumTel.setText(String.valueOf(cl.getNumTel()));
+        if (cl.getImg() != null) {
+            Image picture = new Image("pidev/images/" + cl.getImg(), false);
+            picture_id.setFill(new ImagePattern(picture));
+            picture_id.setEffect(new DropShadow(+25d, 0d, +2d, Color.DARKSEAGREEN));
+
+        }
 
     }
 
@@ -90,7 +103,7 @@ public class UserInfoFXMLController implements Initializable {
         lbEmail.getScene().setRoot(root);
         UpdatePasswordFXMLController home = loader.getController();
         home.id_user = String.valueOf(id_user);
-     
+
     }
 
     @FXML
@@ -114,7 +127,7 @@ public class UserInfoFXMLController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginFXML.fxml"));
         Parent root = loader.load();
         lbAdr.getScene().setRoot(root);
-       
+
     }
 
 }

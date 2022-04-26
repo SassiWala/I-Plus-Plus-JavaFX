@@ -7,16 +7,23 @@ package pidev.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import pidev.entities.User;
 import pidev.services.ServiceUser;
+import pidev.utils.Boxes;
 
 /**
  * FXML Controller class
@@ -31,12 +38,16 @@ public class UpdateUserFXMLController implements Initializable {
     private TextField tfPrenom;
     @FXML
     private TextField tfNumTel;
-    @FXML
     private TextField tfAdresse;
     @FXML
     private TextField tfCodePostale;
 
     String id_user;
+    List reg = Arrays.asList("Ariana", "Bizerte", "Beja", "Jendouba", "Kairaouen", "Gafsa", "Monastir", "Manouba", "Mahdia", "Sousse", "Kebilli", "Gabes", "Medinine", "Kasserine", "Zaghouen", "Sfax", "Kef", "Nabeul");
+    @FXML
+    private ComboBox<String> cbAdr;
+        ObservableList<String> list_client = FXCollections.observableArrayList();
+
 
     /**
      * Initializes the controller class.
@@ -44,6 +55,8 @@ public class UpdateUserFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        list_client =FXCollections.observableArrayList(reg);
+        cbAdr.setItems(list_client);
     }
 
     public void show_data(String id) {
@@ -51,7 +64,7 @@ public class UpdateUserFXMLController implements Initializable {
         User cl = scl.getUser(id_user);
         tfNom.setText(cl.getNom());
         tfPrenom.setText(cl.getPrenom());
-        tfAdresse.setText(cl.getAdresse());
+        
         tfCodePostale.setText(String.valueOf(cl.getCodePostale()));
         tfNumTel.setText(String.valueOf(cl.getNumTel()));
 
@@ -61,11 +74,11 @@ public class UpdateUserFXMLController implements Initializable {
     private void modifierUser(ActionEvent event) throws IOException {
         ServiceUser u = new ServiceUser();
         if (u.whenMatchesDigitsNumber_thenCorrect(tfNumTel.getText()) == false) {
-            alert_Box("", "le numéro de téléphone doit être des chiffres");
+            Boxes.alert_Box("", "le numéro de téléphone doit être des chiffres");
         } else {
-            User p = new User(Integer.valueOf(id_user), tfNom.getText(), tfPrenom.getText(), tfAdresse.getText(), Integer.valueOf(tfCodePostale.getText()), Integer.valueOf(tfNumTel.getText()));
+            User p = new User(Integer.valueOf(id_user), tfNom.getText(), tfPrenom.getText(), cbAdr.getSelectionModel().getSelectedItem(), Integer.valueOf(tfCodePostale.getText()), Integer.valueOf(tfNumTel.getText()));
             u.modifier(p);
-            information_Box("Succés", "utilisateur modifié");
+            Boxes.information_Box("Succés", "utilisateur modifié");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoFXML.fxml"));
             Parent root = loader.load();
             tfNom.getScene().setRoot(root);
@@ -86,17 +99,4 @@ public class UpdateUserFXMLController implements Initializable {
         home.show_data(id_user);
     }
 
-    public void information_Box(String title, String message) {
-        Alert dg = new Alert(Alert.AlertType.INFORMATION);
-        dg.setTitle(title);
-        dg.setContentText(message);
-        dg.show();
-    }
-
-    public void alert_Box(String title, String message) {
-        Alert dg = new Alert(Alert.AlertType.WARNING);
-        dg.setTitle(title);
-        dg.setContentText(message);
-        dg.show();
-    }
 }

@@ -17,17 +17,10 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="429.0" layoutX="271.0" layoutY="110.0" stroke="#fafafa" strokeType="INSIDE" width="461.0" />
       <VBox layoutX="40.0" layoutY="124.0" prefHeight="395.0" prefWidth="190.0" AnchorPane.leftAnchor="40.0">
          <children>
-            <Label fx:id="lbNom" text="Label" textFill="WHITE" />
-           
-         
-            <Button fx:id="liste_des_admins_nav" mnemonicParsing="false" onAction="#liste_des_admins_nav" prefHeight="54.0" prefWidth="156.0" style="-fx-background-color: #ffb320;" text="Liste des admins">
-               <font>
-                  <Font name="MS Reference Sans Serif" size="12.0" />
-               </font>
+            <Label fx:id="lbNom" text="Label" textFill="WHITE">
                <VBox.margin>
-                  <Insets bottom="40.0" top="20.0" />
-               </VBox.margin>
-            </Button>
+                  <Insets bottom="40.0" />
+               </VBox.margin></Label>
             <Button fx:id="liste_des_clients_nav" mnemonicParsing="false" onAction="#liste_des_clients_nav" prefHeight="54.0" prefWidth="152.0" style="-fx-background-color: #ffb320;" text="Liste des clients">
                <font>
                   <Font name="MS Reference Sans Serif" size="12.0" />

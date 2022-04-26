@@ -4,18 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UpdateUserFXMLController.java</file>
-            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ClientHomeFXMLController.java</file>
-            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/services/ServiceUser.java</file>
-            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UpdatePasswordFXMLController.java</file>
-            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/LoginFXMLController.java</file>
-            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/Pidev.java</file>
-            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UpdatePasswordFXML.fxml</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/PidevFXMain.java</file>
             <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/entities/User.java</file>
-            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/entities/Admin.java</file>
-            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UserInfoFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ClientHomeFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UserInfoBFXMLController.java</file>
             <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ListUserFXMLController.java</file>
-            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/AddAdminFXMLController.java</file>
-            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/InscriptionFXMLController.java</file>
         </group>
     </open-files>
 </project-private>

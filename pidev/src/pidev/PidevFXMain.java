@@ -31,7 +31,7 @@ public class PidevFXMain extends Application {
        
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Workshop PIDEV");
+            primaryStage.setTitle("Game Warrior");
             primaryStage.setScene(scene);
             primaryStage.show();
 

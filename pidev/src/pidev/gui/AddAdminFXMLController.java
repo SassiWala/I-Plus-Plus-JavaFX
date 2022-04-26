@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 import pidev.entities.Admin;
 import pidev.entities.User;
 import pidev.services.ServiceUser;
+import pidev.utils.Boxes;
 
 /**
  * FXML Controller class
@@ -67,16 +68,7 @@ public class AddAdminFXMLController implements Initializable {
 
     }
 
-    @FXML
-    private void liste_des_admins_nav(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListAdminFXML.fxml"));
-        Parent root = loader.load();
-        lbNom.getScene().setRoot(root);
-        ListAdminFXMLController home = loader.getController();
-        home.show_data(id_user);
-        home.id_user = id_user;
-
-    }
+    
 
     @FXML
     private void liste_des_clients_nav(ActionEvent event) throws IOException {
@@ -104,12 +96,12 @@ public class AddAdminFXMLController implements Initializable {
     private void ajouterAdmin(ActionEvent event) throws SQLException {
         ServiceUser u = new ServiceUser();
         if (tfNom.getText().length() == 0 || tfPrenom.getText().length() == 0 || tfEmail.getText().length() == 0 || tfAdr.getText().length() == 0 || tfNumTel.getText().length() == 0) {
-            alert_Box("", "Remplir tout les champs");
+            Boxes.alert_Box("", "Remplir tout les champs");
         } else if (u.patternMatches(tfEmail.getText()) == false || u.email_verifier(tfEmail.getText())) {
-            alert_Box("", "Email invalid");
+            Boxes.alert_Box("", "Email invalid");
 
         } else if (u.whenMatchesDigitsNumber_thenCorrect(tfNumTel.getText()) == false) {
-            alert_Box("", "le numéro de téléphone doit être des chiffres");
+            Boxes.alert_Box("", "le numéro de téléphone doit être des chiffres");
         } else {
             Admin ad = new Admin(tfNom.getText(), tfPrenom.getText(), tfEmail.getText(), "GameWarriorChangeme!", tfAdr.getText(), Integer.valueOf(tfNumTel.getText()));
             u.ajouter(ad);
@@ -119,11 +111,6 @@ public class AddAdminFXMLController implements Initializable {
 
     }
 
-    public void alert_Box(String title, String message) {
-        Alert dg = new Alert(Alert.AlertType.WARNING);
-        dg.setTitle(title);
-        dg.setContentText(message);
-        dg.show();
-    }
+    
 
 }

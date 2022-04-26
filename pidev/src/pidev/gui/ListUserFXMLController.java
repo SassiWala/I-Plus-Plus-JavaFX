@@ -19,9 +19,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -41,20 +44,6 @@ import pidev.services.ServiceUser;
 public class ListUserFXMLController implements Initializable {
 
     @FXML
-    private TableView<User> tab_clients;
-    @FXML
-    private TableColumn<User, ?> nom_id_cl;
-    @FXML
-    private TableColumn<User, ?> prenom_id_cl;
-    @FXML
-    private TableColumn<User, ?> email_id_cl;
-    @FXML
-    private TableColumn<User, ?> tel_id_cl;
-    @FXML
-    private TableColumn<User, ?> adresse_id_cl;
-    @FXML
-    private Button liste_des_admins_nav;
-    @FXML
     private Button liste_des_clients_nav;
     @FXML
     private Button ajouter_admin_nav;
@@ -62,8 +51,14 @@ public class ListUserFXMLController implements Initializable {
     @FXML
     private Label lbNom;
     ObservableList<User> list_client = FXCollections.observableArrayList();
+    ObservableList<User> list_recherche_client = FXCollections.observableArrayList();
+    ObservableList<User> list_recherche_admin = FXCollections.observableArrayList();
     @FXML
     private TextField tfRecherche;
+    @FXML
+    private ListView<User> list_users;
+    @FXML
+    private CheckBox cbAdmin;
 
     /**
      * Initializes the controller class.
@@ -85,19 +80,7 @@ public class ListUserFXMLController implements Initializable {
 
     }
 
-    @FXML
-    private void click_tab_clients(MouseEvent event) {
-    }
-
-    @FXML
-    private void liste_des_admins_nav(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListAdminFXML.fxml"));
-        Parent root = loader.load();
-        lbNom.getScene().setRoot(root);
-        ListAdminFXMLController home = loader.getController();
-        home.show_data(id_user);
-        home.id_user = id_user;
-    }
+   
 
     @FXML
     private void liste_des_clients_nav(ActionEvent event) {
@@ -118,37 +101,8 @@ public class ListUserFXMLController implements Initializable {
         ServiceUser scl = new ServiceUser();
 
         list_client = FXCollections.observableArrayList(scl.afficher());
-
-        tel_id_cl.setCellValueFactory(new PropertyValueFactory<>("numTel"));
-        email_id_cl.setCellValueFactory(new PropertyValueFactory<>("email"));
-
-        nom_id_cl.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        prenom_id_cl.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-        adresse_id_cl.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-
-        tab_clients.setItems(list_client);
-        tab_clients.setRowFactory(tv -> {
-            TableRow<User> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (!row.isEmpty())) {
-                    User rowData = row.getItem();
-                    String id = String.valueOf(rowData.getId());
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoBFXML.fxml"));
-                    Parent root;
-                    try {
-                        root = loader.load();
-                        lbNom.getScene().setRoot(root);
-                        UserInfoBFXMLController home = loader.getController();
-                        home.show_data(id);
-                        System.out.println("id>>>>>>>" + id);
-                    } catch (IOException ex) {
-                        Logger.getLogger(ListUserFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            });
-            return row;
-        });
-
+        list_users.getItems().addAll(list_client);
+        list_users.setCellFactory(param -> new UserListCellFXMLController());
     }
 
     @FXML
@@ -160,43 +114,31 @@ public class ListUserFXMLController implements Initializable {
 
     @FXML
     private void rechercher() throws IOException, SQLException {
+        
         ServiceUser scl = new ServiceUser();
-
-        list_client = FXCollections.observableArrayList(scl.rechercherUser(tfRecherche.getText()));
-
-        tel_id_cl.setCellValueFactory(new PropertyValueFactory<>("numTel"));
-        email_id_cl.setCellValueFactory(new PropertyValueFactory<>("email"));
-
-        nom_id_cl.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        prenom_id_cl.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-        adresse_id_cl.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-
-        tab_clients.setItems(list_client);
-        tab_clients.setRowFactory(tv -> {
-            TableRow<User> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (!row.isEmpty())) {
-                    User rowData = row.getItem();
-                    String id = String.valueOf(rowData.getId());
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoBFXML.fxml"));
-                    Parent root;
-                    try {
-                        root = loader.load();
-                        lbNom.getScene().setRoot(root);
-                        UserInfoBFXMLController home = loader.getController();
-                        home.show_data(id);
-                        System.out.println("id>>>>>>>" + id);
-                    } catch (IOException ex) {
-                        Logger.getLogger(ListUserFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            });
-            return row;
-        });
+        list_users.getItems().setAll();
+        list_recherche_client = FXCollections.observableArrayList(scl.rechercherUser(tfRecherche.getText()));
+        list_users.getItems().addAll(list_recherche_client);
+        list_users.setCellFactory(param -> new UserListCellFXMLController());
         if (tfRecherche.getText().isEmpty()) {
             affichage_tab_Clients();
         }
 
+       
+    }
+
+    @FXML
+    private void RechercheAdmin(ActionEvent event) throws SQLException {
+        if(cbAdmin.isSelected()==true){
+              ServiceUser scl = new ServiceUser();
+        list_users.getItems().setAll();
+        list_recherche_admin = FXCollections.observableArrayList(scl.rechercherUserRole("ROLE_ADMIN"));
+        list_users.getItems().addAll(list_recherche_admin);
+        list_users.setCellFactory(param -> new UserListCellFXMLController());
+        if (tfRecherche.getText().isEmpty()) {
+            affichage_tab_Clients();
+        }
+        }
     }
 
 }

@@ -7,6 +7,10 @@ package pidev.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,14 +51,19 @@ public class LoginFXMLController implements Initializable {
 
     @FXML
     private void Login(ActionEvent event) throws IOException {
+        LocalDate now = LocalDate.now();
         if (tfEmail.getText().length() == 0 || tfPassword.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "remplir tout les champs");
         } else {
             ServiceUser u = new ServiceUser();
             User p2 = u.login(tfEmail.getText(), tfPassword.getText());
-            if (p2.getEmail() != null && p2.getRoles().contains("ROLE_USER")==true) {
+//            System.out.println("comparision" + Date.valueOf(now).compareTo(p2.getDateBan()));
+            if (p2.isIsBanned() == true && Date.valueOf(now).compareTo(p2.getDateBan()) < 0) {
+                JOptionPane.showMessageDialog(null, "you are banned till " + p2.getDateBan());
+
+            } else if (p2.getEmail() != null && p2.getRoles().contains("ROLE_USER") == true) {
                 client_home(String.valueOf(p2.getId()));
-            } else if (p2.getEmail() != null && p2.getRoles().contains("ROLE_ADMIN")==true) {
+            } else if (p2.getEmail() != null && p2.getRoles().contains("ROLE_ADMIN") == true) {
                 Admin_Home(String.valueOf(p2.getId()));
             } else {
                 JOptionPane.showMessageDialog(null, "Email ou mot de passe invalid");

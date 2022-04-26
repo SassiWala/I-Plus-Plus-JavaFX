@@ -12,43 +12,31 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.LoginFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="585.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.LoginFXMLController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="652.0" fitWidth="1051.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/WallpaperDog-20492255.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9c9c9" height="303.0" layoutX="164.0" layoutY="69.0" opacity="0.7" stroke="TRANSPARENT" strokeType="INSIDE" width="514.0" />
-      <Label layoutX="329.0" layoutY="77.0" text="Connexion" textAlignment="CENTER">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9c9c9" height="368.0" layoutX="269.0" layoutY="107.0" opacity="0.7" stroke="TRANSPARENT" strokeType="INSIDE" width="587.0" />
+      <Label layoutX="434.0" layoutY="115.0" text="Connexion" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="tfEmail" layoutX="303.0" layoutY="141.0" prefHeight="31.0" prefWidth="239.0" promptText="Email" />
-      <PasswordField fx:id="tfPassword" layoutX="303.0" layoutY="198.0" prefHeight="31.0" prefWidth="239.0" promptText="mot de passe" />
-      <Button fx:id="loginBtn" layoutX="377.0" layoutY="276.0" mnemonicParsing="false" onAction="#Login" style="-fx-background-color: FFB320;" text="connexion" AnchorPane.bottomAnchor="148.0">
+      <TextField fx:id="tfEmail" layoutX="408.0" layoutY="179.0" prefHeight="40.0" prefWidth="328.0" promptText="Email" />
+      <PasswordField fx:id="tfPassword" layoutX="408.0" layoutY="236.0" prefHeight="40.0" prefWidth="328.0" promptText="mot de passe" />
+      <Button fx:id="loginBtn" layoutX="488.0" layoutY="352.0" mnemonicParsing="false" onAction="#Login" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: FFB320;" text="connexion" AnchorPane.bottomAnchor="214.0">
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
          <font>
-            <Font name="Arial Bold" size="14.0" />
+            <Font name="Arial Bold" size="17.0" />
          </font>
       </Button>
-      <Hyperlink layoutX="303.0" layoutY="241.0" onAction="#forgottenPassword" text="Mot de passe oublié?" textFill="#1162b8">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Hyperlink>
-      <Label layoutX="299.0" layoutY="336.0" text="Vous n'avez pas de compte ?">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Hyperlink layoutX="468.0" layoutY="332.0" onAction="#InscriptionShow" text="S'inscrire" textFill="#1162b8">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Hyperlink>
+      <Hyperlink layoutX="408.0" layoutY="302.0" onAction="#forgottenPassword" text="Mot de passe oublié?" textFill="#1162b8" />
+      <Label layoutX="404.0" layoutY="397.0" text="Vous n'avez pas de compte ?" />
+      <Hyperlink layoutX="611.0" layoutY="393.0" onAction="#InscriptionShow" text="S'inscrire" textFill="#1162b8" />
    </children>
 </AnchorPane>

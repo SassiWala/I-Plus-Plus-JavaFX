@@ -6,7 +6,11 @@
 package pidev.gui;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,9 +19,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import pidev.entities.User;
 import pidev.services.ServiceUser;
+import pidev.utils.Boxes;
 
 /**
  * FXML Controller class
@@ -42,6 +49,10 @@ public class UserInfoBFXMLController implements Initializable {
     private Label lbNumTel;
 
     public int id_user;
+    @FXML
+    private DatePicker dpPeriode;
+    @FXML
+    private CheckBox cbBanner;
 
     /**
      * Initializes the controller class.
@@ -49,15 +60,6 @@ public class UserInfoBFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
-
-    @FXML
-    private void liste_des_admins_nav(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListAdminFXML.fxml"));
-        Parent root = loader.load();
-        lbNom.getScene().setRoot(root);
-        ListAdminFXMLController home = loader.getController();
-        home.show_data(String.valueOf(id_user));
     }
 
     public void show_data(String id) {
@@ -68,6 +70,11 @@ public class UserInfoBFXMLController implements Initializable {
         lbAdr.setText(cl.getAdresse());
         lbEmail.setText(cl.getEmail());
         lbNumTel.setText(String.valueOf(cl.getNumTel()));
+        if (cl.getDateBan() != null && cl.isIsBanned()==true) {
+            Date dt = (Date) cl.getDateBan();
+            dpPeriode.setValue(dt.toLocalDate());
+            cbBanner.setSelected(true);
+        }
         id_user = cl.getId();
 
     }
@@ -111,14 +118,21 @@ public class UserInfoBFXMLController implements Initializable {
     private void supprimerUtilisateur(ActionEvent event) {
         ServiceUser su = new ServiceUser();
         su.supprimer(id_user);
-        information_Box("", "Utilisateur supprimé");
+        Boxes.information_Box("", "Utilisateur supprimé");
 
     }
 
-    public void information_Box(String title, String message) {
-        Alert dg = new Alert(Alert.AlertType.INFORMATION);
-        dg.setTitle(title);
-        dg.setContentText(message);
-        dg.show();
+    @FXML
+    private void BannerUser(ActionEvent event) throws MalformedURLException, IOException {
+        ServiceUser su = new ServiceUser();
+        if (cbBanner.isSelected() == true) {
+            Date dt = Date.valueOf(dpPeriode.getValue());
+            User u = new User(id_user, true, dt);
+            su.ban_user(u);
+          //  su.sendSms("you are banned", lbNumTel.getText());
+            Boxes.information_Box("", "User banned");
+        }else if (cbBanner.isSelected() == false) {
+            su.deban_user(id_user);
+        }
     }
 }

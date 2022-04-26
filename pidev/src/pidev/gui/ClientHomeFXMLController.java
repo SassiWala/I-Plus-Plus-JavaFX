@@ -28,6 +28,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import pidev.entities.User;
 import pidev.services.ServiceUser;
 
@@ -38,8 +39,6 @@ import pidev.services.ServiceUser;
  */
 public class ClientHomeFXMLController implements Initializable {
 
-    @FXML
-    private BorderPane mainpane;
     @FXML
     private Label lbEmail;
     @FXML
@@ -52,6 +51,8 @@ public class ClientHomeFXMLController implements Initializable {
     private Hyperlink log_out;
 
     public String id_user;
+    @FXML
+    private Circle picture_id;
 
     /**
      * Initializes the controller class.
@@ -69,6 +70,13 @@ public class ClientHomeFXMLController implements Initializable {
         ServiceUser scl = new ServiceUser();
         User cl = scl.getUser(id);
         lbEmail.setText("Bienvenue " + cl.getNom() + " " + cl.getPrenom());
+        picture_id.setStroke(Color.SEAGREEN);
+        if (cl.getImg() != null) {
+            Image picture = new Image("pidev/images/" + cl.getImg(), false);
+            picture_id.setFill(new ImagePattern(picture));
+            picture_id.setEffect(new DropShadow(+25d, 0d, +2d, Color.DARKSEAGREEN));
+
+        }
 
     }
 

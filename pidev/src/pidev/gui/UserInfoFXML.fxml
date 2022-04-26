@@ -7,18 +7,19 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="808.0" style="-fx-background-color: #252525;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.UserInfoFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1051.0" style="-fx-background-color: #252525;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.UserInfoFXMLController">
     <children>
-        <AnchorPane layoutX="268.0" layoutY="52.0" prefHeight="435.0" prefWidth="484.0" style="-fx-background-color: #333333;">
+        <AnchorPane layoutX="275.0" layoutY="85.0" prefHeight="435.0" prefWidth="762.0" style="-fx-background-color: #333333;">
             <children>
                 <Label layoutX="11.0" layoutY="9.0" text="Details Personnels" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Label>
-                <Separator layoutX="12.0" layoutY="48.0" prefHeight="3.0" prefWidth="500.0" />
+                <Separator layoutX="12.0" layoutY="48.0" prefHeight="3.0" prefWidth="739.0" />
                 <Label layoutX="12.0" layoutY="127.0" text="Email" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="15.0" />
@@ -43,17 +44,17 @@
                 <Label fx:id="lbEmail" layoutX="12.0" layoutY="151.0" text="Label" textFill="WHITE" />
                 <Label fx:id="lbMdp" layoutX="14.0" layoutY="225.0" text="Label" textFill="WHITE" />
                 <Label fx:id="lbAdr" layoutX="14.0" layoutY="297.0" text="Label" textFill="WHITE" />
-                <Hyperlink layoutX="445.0" layoutY="82.0" onAction="#UpdateView" text="Modifier" textFill="#ffb320" />
-                <Hyperlink layoutX="445.0" layoutY="221.0" onAction="#UpdateViewMdp" text="Modifier" textFill="#ffb320" />
-                <Hyperlink layoutX="445.0" layoutY="293.0" onAction="#UpdateView" text="Modifier" textFill="#ffb320" />
-                <Label fx:id="lbPrenom" layoutX="53.0" layoutY="86.0" text="Label" textFill="#f8f8f8" />
+                <Hyperlink layoutX="674.0" layoutY="82.0" onAction="#UpdateView" text="Modifier" textFill="#ffb320" />
+                <Hyperlink layoutX="674.0" layoutY="205.0" onAction="#UpdateViewMdp" text="Modifier" textFill="#ffb320" />
+                <Hyperlink layoutX="674.0" layoutY="277.0" onAction="#UpdateView" text="Modifier" textFill="#ffb320" />
+                <Label fx:id="lbPrenom" layoutX="53.0" layoutY="86.0" textFill="#f8f8f8" />
             <Label layoutX="12.0" layoutY="353.0" text="Numéro de Télephone" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
             <Label fx:id="lbNumTel" layoutX="14.0" layoutY="381.0" text="Label" textFill="WHITE" />
-            <Hyperlink layoutX="445.0" layoutY="377.0" onAction="#UpdateView" text="Modifier" textFill="#ffb320" />
+            <Hyperlink layoutX="674.0" layoutY="361.0" onAction="#UpdateView" text="Modifier" textFill="#ffb320" />
             </children>
         </AnchorPane>
           <VBox layoutX="14.0" layoutY="52.0" prefHeight="435.0" prefWidth="227.0">
@@ -63,6 +64,11 @@
                           <Font name="Arial Bold" size="16.0" />
                       </font>
                   </Label>
+            <Circle fx:id="picture_id" fill="DODGERBLUE" radius="57.0" stroke="BLACK" strokeType="INSIDE">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Circle>
                   <Button fx:id="Actualité" alignment="CENTER" graphicTextGap="20.0" onAction="#Actualité" prefHeight="40.0" prefWidth="227.0" style="-fx-background-color: ffb320;" styleClass="drawer-item" text="Actualité">
                       <VBox.margin>
                           <Insets bottom="20.0" />
