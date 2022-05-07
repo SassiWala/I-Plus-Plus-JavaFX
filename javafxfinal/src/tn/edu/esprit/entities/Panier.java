@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
+package tn.edu.esprit.entities;
 
 /**
  *
@@ -16,14 +16,36 @@ public class Panier {
     private String nomProd;
     private int user_id;
     private float prixUnitaire;
+    public int stock;
 
-    public Panier(int id, int produit_id, int quantite, String nomProd, int user_id, float prixUnitaire) {
+    public Panier(int id, int produit_id, int quantite, String nomProd, int user_id, int stock) {
+        this.id = id;
+        this.produit_id = produit_id;
+        this.quantite = quantite;
+        this.nomProd = nomProd;
+        this.user_id = user_id;
+        this.stock = stock;
+    }
+
+    
+    
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    
+    public Panier(int id, int produit_id, int quantite, String nomProd, int user_id, float prixUnitaire,int stock) {
         this.id = id;
         this.produit_id = produit_id;
         this.quantite = quantite;
         this.nomProd = nomProd;
         this.user_id = user_id;
         this.prixUnitaire = prixUnitaire;
+        this.stock=stock;
+        
     }
 
     public float getPrixUnitaire() {
@@ -67,8 +89,10 @@ public class Panier {
 
     @Override
     public String toString() {
-        return "Panier{" + "id=" + id + ", produit_id=" + produit_id + ", quantite=" + quantite + ", nomProd=" + nomProd + ", user_id=" + user_id + ", prixUnitaire=" + prixUnitaire + '}';
+        return "Panier{" + "id=" + id + ", produit_id=" + produit_id + ", quantite=" + quantite + ", nomProd=" + nomProd + ", user_id=" + user_id + ", prixUnitaire=" + prixUnitaire + ", stock=" + stock + '}';
     }
+
+   
 
     
 

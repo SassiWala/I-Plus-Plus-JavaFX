@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
-import entities.Commande;
+package tn.edu.esprit.services;
+import tn.edu.esprit.entities.Commande;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

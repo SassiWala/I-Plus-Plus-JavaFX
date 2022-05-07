@@ -29,7 +29,7 @@ import java.sql.Statement;
  */
 public class Pdf {
         private Connection con;
-        private Statement ste;
+        //private Statement ste;
     public Pdf()  {
          
     

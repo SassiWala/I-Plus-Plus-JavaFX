@@ -3,8 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/services/PanierServices.java</file>
+            <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/gui/PanierFXMLController.java</file>
+            <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/services/CommandeServices.java</file>
+            <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/gui/CommandeFXMLController.java</file>
+            <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/entities/Panier.java</file>
+            <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/services/LigneCommandeServices.java</file>
             <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/javafxfinal/FrontFXMain.java</file>
+            <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/services/SendMail.java</file>
+            <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/services/Pdf.java</file>
+            <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/gui/ModifierQuantiteFXMLController.java</file>
             <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/javafxfinal/Javafxfinal.java</file>
+            <file>file:/C:/Users/yassi/Documents/NetBeansProjects/javafxfinal/src/tn/edu/esprit/utis/MyConnection.java</file>
         </group>
     </open-files>
 </project-private>

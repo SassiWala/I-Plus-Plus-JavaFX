@@ -77,7 +77,7 @@
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <Button fx:id="btnD" layoutX="965.0" layoutY="201.0" mnemonicParsing="false" onAction="#Details" text="Details ">
+      <Button fx:id="btnD" layoutX="960.0" layoutY="201.0" mnemonicParsing="false" onAction="#Details" text="Details ">
          <font>
             <Font size="14.0" />
          </font>

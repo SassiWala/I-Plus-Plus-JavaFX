@@ -5,7 +5,7 @@
  */
 package tn.edu.esprit.gui;
 
-import entities.Panier;
+import tn.edu.esprit.entities.Panier;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,7 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import services.PanierServices;
+import tn.edu.esprit.services.PanierServices;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
@@ -32,6 +32,7 @@ public class ModifierQuantiteFXMLController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    public int stockp;
     public Panier panier;
     @FXML
     private TextField tfQuantite;
@@ -45,10 +46,15 @@ public class ModifierQuantiteFXMLController implements Initializable {
         panier=p;
         //System.out.println("panier"+p);
     }
+    public void setStock(Panier p){
+        stockp=p.getStock();
+        //System.out.println("panier"+p);
+    }
 
     @FXML
     private void modifQ(ActionEvent event) throws IOException {
-         
+        
+        if(!tfQuantite.getText().isEmpty()&&Integer.valueOf(tfQuantite.getText())<=panier.getStock() ){
         PanierServices ps = new PanierServices();
         ps.modifier2(panier.getId(), Integer.valueOf(tfQuantite.getText()));
         
@@ -61,7 +67,12 @@ public class ModifierQuantiteFXMLController implements Initializable {
         tray.setMessage("Quantité Modifiée avec success");
         tray.setNotificationType(NotificationType.NOTICE);
         tray.showAndWait();
-        
+        }else{
+            Alert a =new Alert(Alert.AlertType.ERROR, "veuiller metre une quantité convenable", ButtonType.OK);
+            a.show();
+        }
+        System.err.println(Integer.valueOf(tfQuantite.getText()));
+        System.err.println(panier.getStock());
     }
 
     @FXML

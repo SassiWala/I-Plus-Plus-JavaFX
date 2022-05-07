@@ -11,7 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import entities.Panier;
+import tn.edu.esprit.entities.Panier;
 import tn.edu.esprit.services.SendMail;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -29,7 +29,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
-import services.PanierServices;
+import tn.edu.esprit.services.PanierServices;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 

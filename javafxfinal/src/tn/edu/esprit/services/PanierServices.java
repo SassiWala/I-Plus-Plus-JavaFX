@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package tn.edu.esprit.services;
 
-import entities.Panier;
+import tn.edu.esprit.entities.Panier;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,9 +17,9 @@ import java.util.ListIterator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utis.MyConnection;
-import entities.Commande;
-import entities.LigneCommande;
-import entities.Prod;
+import tn.edu.esprit.entities.Commande;
+import tn.edu.esprit.entities.LigneCommande;
+import tn.edu.esprit.entities.Prod;
 /**
  *
  * @author yassi
@@ -31,7 +31,7 @@ public class PanierServices implements IServices<Panier>{
     public void ajouter(Panier p) {
  
         try {
-            String req = "INSERT INTO `panier` (`produit_id`,`nomProd`,`id_user`,`prixUnitaire`) VALUES ('" + p.getProduit_id()+ "','" + getNomProduit(p.getProduit_id())+ "','" + p.getUser_id()+ "','" + getPrixProduit(p.getProduit_id())+ "')";
+            String req = "INSERT INTO `panier` (`produit_id`,`nomProd`,`id_user`,`prixUnitaire`,`stock`) VALUES ('" + p.getProduit_id()+ "','" + getNomProduit(p.getProduit_id())+ "','" + p.getUser_id()+ "','" + getPrixProduit(p.getProduit_id())+ "','" + getQuantiteProd(p.getProduit_id())+ "')";
              Statement st = cnx.createStatement();
             st.executeUpdate(req);
             System.out.println("produit passé created !");
@@ -66,7 +66,7 @@ List<Panier> list = new ArrayList<>();
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
             while(rs.next()){
-                Panier p = new Panier( rs.getInt(1),rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getInt(5));
+                Panier p = new Panier( rs.getInt(1),rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getInt(5),rs.getInt(7));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -116,7 +116,7 @@ System.out.println(list);
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
             while(rs.next()){
-                Panier p = new Panier( rs.getInt(1),rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getInt(5),rs.getFloat(6));
+                Panier p = new Panier( rs.getInt(1),rs.getInt(2), rs.getInt(3),rs.getString(4),rs.getInt(5),rs.getFloat(6),rs.getInt(7));
                 panierlist.add(p);
             }
         } catch (SQLException ex) {

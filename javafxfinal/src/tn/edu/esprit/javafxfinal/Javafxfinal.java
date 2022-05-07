@@ -5,21 +5,17 @@
  */
 package tn.edu.esprit.javafxfinal;
 
-import entities.LigneCommande;
-import services.PanierServices;
+import tn.edu.esprit.entities.LigneCommande;
+import tn.edu.esprit.services.PanierServices;
 import utis.MyConnection;
-import entities.Commande;
-import entities.Panier;
-import services.CommandeServices;
-import services.LigneCommandeServices;
-import java.io.BufferedReader;
+import tn.edu.esprit.entities.Commande;
+import tn.edu.esprit.entities.Panier;
+import tn.edu.esprit.services.CommandeServices;
+import tn.edu.esprit.services.LigneCommandeServices;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
+
 
 
 /**
@@ -34,14 +30,14 @@ public class Javafxfinal {
     public static void main(String[] args) throws MalformedURLException, IOException,UnsupportedEncodingException {
         // TODO code application logic here
         MyConnection mc2 = MyConnection.getInstance();
-        Panier p1=new Panier(1,8,1);
+        Panier p1=new Panier(2,8,1);
         PanierServices ps=new PanierServices();
         //ps.getNomProduit(1);
         ps.ajouter(p1);
         //ps.supprimer(1);
         //ps.modifier2(3, 4);
         //ps.vider();
-        //ps.getAll().toString();
+        ps.getAll().toString();
         //ps.getPanier();
         //ps.getPrixProduit(1);
         //ps.getTotal();

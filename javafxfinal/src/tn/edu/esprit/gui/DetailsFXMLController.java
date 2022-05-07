@@ -5,14 +5,14 @@
  */
 package tn.edu.esprit.gui;
 
-import entities.LigneCommande;
+import tn.edu.esprit.entities.LigneCommande;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import entities.Commande;
+import tn.edu.esprit.entities.Commande;
 import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
-import services.LigneCommandeServices;
+import tn.edu.esprit.services.LigneCommandeServices;
 /**
  * FXML Controller class
  *
