@@ -5,6 +5,9 @@
  */
 package javaentity;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.sql.Date;
+
 /**
  *
  * @author sahra
@@ -20,6 +23,7 @@ public class actualite implements Comparable<actualite> {
    private String etendu;
    private String image_act;
    private int rating_act;
+   private Date Date_act;
    private int vu;
    private  categorie categorie;
 
@@ -30,6 +34,17 @@ public class actualite implements Comparable<actualite> {
         this.etendu = etendu;
         this.image_act = image_act;
         this.rating_act = rating_act;
+        this.vu = vu;
+        this.categorie = categorie;
+    }
+    public actualite(int id_actualite, String titre_actualite, String description, String etendu, String image_act, int rating_act,Date Date_act, int vu, categorie categorie) {
+        this.id_actualite = id_actualite;
+        this.titre_actualite = titre_actualite;
+        this.description = description;
+        this.etendu = etendu;
+        this.image_act = image_act;
+        this.rating_act = rating_act;
+        this.Date_act=Date_act;
         this.vu = vu;
         this.categorie = categorie;
     }
@@ -124,6 +139,14 @@ public class actualite implements Comparable<actualite> {
         return vu;
     }
 
+    public Date getDate_act() {
+        return Date_act;
+    }
+
+    public void setDate_act(Date Date_act) {
+        this.Date_act = Date_act;
+    }
+
     public void setVu(int vu) {
         this.vu = vu;
     }
@@ -138,9 +161,13 @@ public class actualite implements Comparable<actualite> {
 
     @Override
     public String toString() {
-        return "actualite{" + "id_actualite=" + id_actualite + ", titre_actualite=" + titre_actualite + ", description=" + description + ", etendu=" + etendu + ", image_act=" + image_act + ", rating_act=" + rating_act + ", vu=" + vu + '}';
+        if(etendu==null)
+                return "titre_actualite=" + titre_actualite + ", description=" + description + " rating_act=" + rating_act  + ", Date_act=" + Date_act + ", vu=" + vu +",categorie"+ categorie.getNom_cat_actualite() ;
+        else
+        return "actualite{ " + " id_actualite=" + id_actualite + ", titre_actualite=" + titre_actualite + ", description=" + description + ", etendu=" + etendu + ", image_act=" + image_act + ", rating_act=" + rating_act  + ", Date_act=" + Date_act + ", vu=" + vu + '}';
     }
-
+    
+   
     @Override
     public int compareTo(actualite o) {
         return(o.rating_act-this.rating_act);

@@ -88,7 +88,90 @@ System.err.println(ex.getMessage());
            a.setEtendu(rs.getString("etendu"));
            a.setImage_act(rs.getString("image_act"));
            a.setRating_act(rs.getInt(7));
+            a.setDate_act(rs.getDate("Date_act"));
            a.setVu(rs.getInt(9));
+           myList.add(a);
+
+           
+           }
+            
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage()); 
+        }
+        return myList;
+    }
+       public List<actualite> afficheractualite2(){
+                    List<actualite> myList =new ArrayList<>();
+        try {
+            String requete3 = "SELECT * FROM actualite";
+            Statement st =new myconnection().getConnection().createStatement();
+           ResultSet rs = st.executeQuery(requete3);
+           while (rs.next()){
+           actualite a = new actualite();
+           a.setId_actualite(rs.getInt(1));
+           a.setTitre_actualite(rs.getString("titre_actualite"));
+           a.setDescription(rs.getString("description"));
+           a.setEtendu(rs.getString("etendu"));
+           a.setImage_act(rs.getString("image_act"));
+           a.setRating_act(rs.getInt(7));
+            a.setDate_act(rs.getDate("Date_act"));
+           a.setVu(rs.getInt(9));
+           myList.add(a);
+
+           
+           }
+            
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage()); 
+        }
+        return myList;
+    }
+     public actualite afficheractualite3(String t){
+         
+                   actualite a = new actualite() ;
+        try {
+            
+            String requete3 = "SELECT * FROM actualite WHERE titre_actualite='" +t+ "'";
+            System.out.println(requete3);
+            Statement st =new myconnection().getConnection().createStatement();
+           ResultSet rs = st.executeQuery(requete3);
+           while (rs.next()){
+           a.setId_actualite(rs.getInt(1));
+           a.setTitre_actualite(rs.getString("titre_actualite"));
+           a.setDescription(rs.getString("description"));
+           a.setEtendu(rs.getString("etendu"));
+           a.setImage_act(rs.getString("image_act"));
+           a.setRating_act(rs.getInt(7));
+            a.setDate_act(rs.getDate("Date_act"));
+           a.setVu(rs.getInt(9));
+      
+
+           
+           }
+            
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage()); 
+        }
+        return a;
+    }
+    
+
+      public List<actualite> affichfront (){
+                    List<actualite> myList =new ArrayList<>();
+        try {
+            String requete3 = "SELECT id_actualite,titre_actualite,description,Date_act,rating_act,vu,categorie FROM actualite";
+            Statement st =new myconnection().getConnection().createStatement();
+           ResultSet rs = st.executeQuery(requete3);
+           while (rs.next()){
+           actualite a = new actualite();
+           a.setRating_act(rs.getInt(1));
+           a.setTitre_actualite(rs.getString("titre_actualite"));
+           a.setDescription(rs.getString("description"));
+           a.setDate_act(rs.getDate("Date_act"));
+           a.setRating_act(rs.getInt(5));
+           a.setVu(rs.getInt(6));
+           categorie c = new categorie(rs.getString("categorie"));
+           a.setCategorie(c);
            myList.add(a);
 
            
@@ -118,16 +201,7 @@ System.err.println(ex.getMessage());
      return list;
     
 }
-      public ObservableList<actualite> filtre(categorie categorie ){
-         List<actualite> aclist = new ArrayList();
-        aclist = afficheractualite();
-        
-         ObservableList<actualite> list = FXCollections.observableArrayList(aclist.stream().filter(a->a.getCategorie().equals(categorie)).collect(Collectors.toList()));
-
-     return list;
-    
-
-}
+  
 public void Vu(actualite a)
         { String req ="UPDATE actualite set vu=?  WHERE id_actualite =" +a.getId_actualite()+ " ";
         try {
@@ -136,7 +210,23 @@ public void Vu(actualite a)
           
            
               pst.executeUpdate();
-              System.out.println("actualite modifié");
+          
+            
+        } catch (SQLException ex) {
+            
+              System.err.println(ex.getMessage()); 
+            
+        } 
+        }
+public void rating(actualite a)
+        { String req ="UPDATE actualite set rating_act=?  WHERE id_actualite =" +a.getId_actualite()+ " ";
+        try {
+           PreparedStatement pst = new myconnection().getConnection().prepareStatement(req);
+            pst.setInt(1, a.getRating_act()+1);
+          
+           
+              pst.executeUpdate();
+             
             
         } catch (SQLException ex) {
             

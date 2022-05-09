@@ -7,6 +7,7 @@ package actualiteGuiTest;
 
 import java.io.IOException;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -20,12 +21,12 @@ import javafx.stage.Stage;
  *
  * @author sahra
  */
-public class SecondWindow extends Application {
+public class FirstWindow extends Application {
     
     @Override
     public void start(Stage primaryStage) {
          try {
-            Parent root = FXMLLoader.load(getClass().getResource("/actualiteGuiTest/Actualites.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/actualiteGuiTest/Front_end.fxml"));
           
             Scene scene = new Scene(root);
            

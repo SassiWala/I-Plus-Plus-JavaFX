@@ -207,9 +207,15 @@ public class UpdateActController implements Initializable {
     }
 
     
+
+    @FXML
+    private void searcho(InputMethodEvent event) {
+        
+    }
+
     @FXML
     private void searching(KeyEvent event) {
-        String search= tfsearch.getText();
+         String search= tfsearch.getText();
         System.out.println(search);
         actualiteCRUD acd= new actualiteCRUD ();
         List<actualite> list = acd.Searcho(search);
