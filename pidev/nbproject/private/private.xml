@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UserListCellFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UpdateUserFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/PanierFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/DeletecatController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/CommandeFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/AddactController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/DeleteActController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UpdatePasswordFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ModifierQuantiteFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ProduitDetailsFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UpdateCatController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ReclamationFrontController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/TypereclamationController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/Front_endController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UserInfoFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/services/ServiceTypereclamation.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/services/LigneCommandeServices.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UpdateActController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ClientHomeFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/utils/Mail.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/services/ServiceUser.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ReclamationController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/entities/Prod.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/AddcatController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/UserInfoBFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/entities/actualite.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/LoginFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ActualitéCelluleFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/DashboardFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/Front_ActualiteController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/FrontEventController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ProduitFrontController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/services/ServiceProd.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/services/actualiteCRUD.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ListUserFXMLController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/ActualitesController.java</file>
+            <file>file:/C:/Users/21695/Documents/NetBeansProjects/pidev/src/pidev/gui/PechotelController.java</file>
+        </group>
+    </open-files>
+</project-private>

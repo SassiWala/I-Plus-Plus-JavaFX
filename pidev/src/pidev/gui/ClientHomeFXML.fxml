@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.ClientHomeFXMLController">
+   <children>
+      <VBox layoutX="26.0" layoutY="135.0" prefHeight="530.0" prefWidth="227.0" AnchorPane.leftAnchor="26.0">
+         <children>
+            <Circle fx:id="picture_id" fill="DODGERBLUE" radius="42.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="lbEmail" text="Label">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="name_client" alignment="TOP_CENTER" prefHeight="18.0" prefWidth="226.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="Actualité" alignment="CENTER" graphicTextGap="20.0" onAction="#Actualité" prefHeight="40.0" prefWidth="227.0" style="-fx-background-color: ffb320;" styleClass="drawer-item" text="Actualité">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+            <Button alignment="CENTER" graphicTextGap="20.0" onAction="#ProduitView" prefHeight="40.0" prefWidth="596.0" style="-fx-background-color: ffb320;" styleClass="drawer-item" text="Produit">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="events" alignment="CENTER" graphicTextGap="20.0" onAction="#EventsView" prefHeight="40.0" prefWidth="596.0" style="-fx-background-color: ffb320;" styleClass="drawer-item" text="Evenement">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="recla" alignment="CENTER" graphicTextGap="20.0" onAction="#ReclamationView" prefHeight="40.0" prefWidth="596.0" style="-fx-background-color: ffb320;" styleClass="drawer-item" text="Réclamation">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="panier" alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" onAction="#PanierView" onMouseClicked="#dashboard" prefHeight="40.0" prefWidth="282.0" style="-fx-background-color: ffb320;" styleClass="drawer-item" text="Panier">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="profile" alignment="CENTER" graphicTextGap="20.0" onAction="#ProfileView" prefHeight="40.0" prefWidth="596.0" style="-fx-background-color: ffb320;" styleClass="drawer-item" text="Mon Profile">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></Button>
+            <Hyperlink fx:id="log_out" alignment="CENTER" onAction="#log_out_button" prefHeight="35.0" prefWidth="226.0" text="Se deconnecter" textFill="#6c6fe8">
+               <font>
+                  <Font name="Bodoni MT Bold" size="20.0" />
+               </font>
+               <graphic>
+                  <SVGPath content="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" mouseTransparent="true" styleClass="icon" />
+               </graphic>
+            </Hyperlink>
+         </children>
+      </VBox>
+      <BorderPane fx:id="center_panel" layoutX="284.0" layoutY="91.0" prefHeight="603.0" prefWidth="901.0" />
+      <ImageView fitHeight="56.0" fitWidth="293.0" layoutX="14.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/footer-logo.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

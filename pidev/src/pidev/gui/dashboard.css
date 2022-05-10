@@ -1,0 +1,23 @@
+.hover_border:hover {
+    -fx-border-fidth: Opx Opx Opx 4px;
+    -fx-cursor: hand;
+}
+.input{
+    -fx-background-color : transparent;
+    -fx-border-color: transparent transparent  aqua transparent;
+    -fx-border-width: 0 0 2px 0;
+}
+.insert-image-button{
+    -fx-background-color: transparent;
+    -fx-text-fill: #3a4f93;
+    -fx-cursor: hand;
+    -fx-font-size1: 15px;
+    
+}
+.fruit-item{
+    -fx-background-color: #FFFFFF;
+        -fx-background-radius: 30;
+}
+.shadow{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}

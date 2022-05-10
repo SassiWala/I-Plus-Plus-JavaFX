@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane id="AnchorPane" fx:id="stck" prefHeight="510.0" prefWidth="907.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.BackEventController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="tfnom" layoutX="78.0" layoutY="155.0" prefHeight="31.0" prefWidth="218.0" promptText="Nom de l'event" />
+            <TextField fx:id="tflieu" layoutX="78.0" layoutY="202.0" prefHeight="31.0" prefWidth="218.0" promptText="lieu" />
+            <TextField fx:id="tfdesc" layoutX="78.0" layoutY="249.0" prefHeight="31.0" prefWidth="218.0" promptText="description" />
+            <Button layoutX="78.0" layoutY="401.0" mnemonicParsing="false" onMouseClicked="#btnCreateClicked" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: linear-gradient(to right top, #FBAB7E 0%, #F7CE68 100%);" text="Create" textFill="WHITE" />
+            <DatePicker fx:id="tfdate" layoutX="78.0" layoutY="295.0" promptText="date de l'event" />
+            <ComboBox fx:id="tftype" layoutX="78.0" layoutY="344.0" prefHeight="31.0" prefWidth="218.0" promptText="type" />
+            <Button layoutX="78.0" layoutY="449.0" mnemonicParsing="false" onMouseClicked="#btnModifierClicked" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: linear-gradient(to right top, #FBAB7E 0%, #F7CE68 100%);" text="Modifier" textFill="WHITE" />
+            <Button layoutX="768.0" layoutY="449.0" mnemonicParsing="false" onMouseClicked="#btnSupprimerClicked" style="-fx-background-color: linear-gradient(to right top, #FBAB7E 0%, #F7CE68 100%);" text="Supprimer" textFill="WHITE" />
+            <TextField fx:id="txtSearch" layoutX="350.0" layoutY="92.0" promptText="rechercher" />
+            <Button layoutX="548.0" layoutY="92.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to right top, #FBAB7E 0%, #F7CE68 100%);" text="Search" textFill="WHITE" />
+            <Label fx:id="title" alignment="CENTER" prefHeight="47.0" prefWidth="907.0" text="Evenement" textFill="#bfbbd0">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="518.0" prefWidth="59.0" style="-fx-background-color: #767676;">
+               <children>
+                  <ImageView fitHeight="47.0" fitWidth="53.0" layoutX="5.0" layoutY="16.0" onMouseClicked="#GoToBackEvent" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/event.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="47.0" fitWidth="53.0" layoutX="6.0" layoutY="79.0" onMouseClicked="#GoToReservationEvent" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/reservation.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <TableView fx:id="TableViewEvent" layoutX="320.0" layoutY="147.0" prefHeight="273.0" prefWidth="573.0">
+              <columns>
+                <TableColumn fx:id="col_id" prefWidth="35.0" text="id" />
+                <TableColumn fx:id="col_nom" prefWidth="88.0" text="nomEvent" />
+                  <TableColumn fx:id="col_date" prefWidth="87.0" text="Date" />
+                  <TableColumn fx:id="col_lieux" prefWidth="112.0" text="Lieux" />
+                  <TableColumn fx:id="col_description" prefWidth="157.0" text="Description" />
+                  <TableColumn fx:id="col_type" prefWidth="84.0" text="type" />
+              </columns>
+            </TableView>
+            <ImageView fitHeight="47.0" fitWidth="45.0" layoutX="658.0" layoutY="85.0" onMouseClicked="#GeneratePdf" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/fichierPDF.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="ControleNom" layoutX="80.0" layoutY="186.0" text="obligatory field" textFill="RED" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="ControleLieux" layoutX="80.0" layoutY="233.0" text="obligatory field" textFill="RED" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="ControleDate" layoutX="80.0" layoutY="326.0" text="obligatory field" textFill="RED" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="ControleDesc" layoutX="82.0" layoutY="278.0" text="obligatory field" textFill="RED" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="ControleType" layoutX="80.0" layoutY="375.0" text="obligatory field" textFill="RED" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

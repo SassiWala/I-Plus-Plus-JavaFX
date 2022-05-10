@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="934.0" prefWidth="1477.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.Front_ActualiteController">
+   <children>
+      <WebView fx:id="webview" layoutX="5.0" prefHeight="960.0" prefWidth="1469.0" />
+   </children>
+</AnchorPane>

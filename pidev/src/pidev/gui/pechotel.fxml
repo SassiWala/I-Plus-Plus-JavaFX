@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="852.0" style="-fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.PechotelController">
+   <children>
+      <TabPane layoutX="12.0" layoutY="10.0" prefHeight="653.0" prefWidth="838.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Nouveau produit">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="869.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="296.0" layoutY="14.0" prefHeight="43.0" prefWidth="258.0" text="Ajouter nouveau produit">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="refhotel" layoutX="316.0" layoutY="132.0" prefHeight="28.0" prefWidth="200.0" styleClass="input" stylesheets="@dashboard.css" />
+                        <TextField fx:id="nomhotel" layoutX="316.0" layoutY="184.0" prefHeight="28.0" prefWidth="200.0" styleClass="input" stylesheets="@dashboard.css" />
+                        <TextField fx:id="villehotel" layoutX="316.0" layoutY="254.0" prefHeight="28.0" prefWidth="200.0" styleClass="input" stylesheets="@dashboard.css" />
+                        <TextField fx:id="nbetoilehotel" layoutX="308.0" layoutY="308.0" prefHeight="28.0" prefWidth="200.0" styleClass="input" stylesheets="@dashboard.css" />
+                        <Label layoutX="140.0" layoutY="137.0" prefHeight="18.0" prefWidth="150.0" text="Nom produit" />
+                        <Label layoutX="139.0" layoutY="189.0" prefHeight="18.0" prefWidth="138.0" text="Prix produit" />
+                        <Label layoutX="140.0" layoutY="259.0" prefHeight="18.0" prefWidth="150.0" text="Status produit" />
+                        <Label layoutX="133.0" layoutY="313.0" prefHeight="18.0" prefWidth="150.0" text="rate produit" />
+                        <Label layoutX="146.0" layoutY="418.0" prefHeight="18.0" prefWidth="138.0" text="Image" />
+                        <ImageView fx:id="imgview" fitHeight="98.0" fitWidth="151.0" layoutX="325.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="btnimg" alignment="CENTER" contentDisplay="CENTER" layoutX="308.0" layoutY="387.0" mnemonicParsing="false" onAction="#InsertImage" prefHeight="98.0" prefWidth="200.0" stylesheets="@dashboard.css" text="Choix d'image">
+                           <styleClass>
+                              <String fx:value="insert-image-button" />
+                              <String fx:value="input" />
+                           </styleClass>
+                        </Button>
+                        <Label fx:id="file_path" layoutX="325.0" layoutY="513.0" prefHeight="18.0" prefWidth="200.0" text="URL" />
+                        <Button fx:id="addbutton" layoutX="278.0" layoutY="544.0" mnemonicParsing="false" onAction="#ajouterhotel" prefHeight="43.0" prefWidth="138.0" text="Ajouter" />
+                        <Button fx:id="annuler" layoutX="456.0" layoutY="545.0" mnemonicParsing="false" onAction="#clear" prefHeight="43.0" prefWidth="138.0" text="Annuler" />
+                        <TextField fx:id="desc" layoutX="308.0" layoutY="374.0" prefHeight="26.0" prefWidth="217.0" styleClass="input" stylesheets="@dashboard.css" />
+                        <Label layoutX="126.0" layoutY="379.0" prefHeight="18.0" prefWidth="150.0" text="Description" />
+                        <ComboBox fx:id="combo_promo" layoutX="645.0" layoutY="466.0" prefWidth="150.0" />
+                        <Label layoutX="577.0" layoutY="471.0" text="Promo" />
+                        <TextField fx:id="quantite" layoutX="712.0" layoutY="319.0" prefHeight="31.0" prefWidth="77.0" />
+                        <Label layoutX="577.0" layoutY="331.0" text="Quantité" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Liste des produits">
+            <content>
+              <AnchorPane fx:id="listhotelpanel" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane layoutX="3.0" layoutY="70.0" prefHeight="532.0" prefWidth="831.0">
+                           <content>
+                            <AnchorPane prefHeight="214.0" prefWidth="207.0">
+                                 <children>
+                                    <GridPane fx:id="grid" layoutX="14.0" layoutY="159.0" prefHeight="174.0" prefWidth="169.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                        <Button layoutX="693.0" layoutY="9.0" mnemonicParsing="false" onAction="#produits_pdf" prefHeight="51.0" prefWidth="122.0" text="Produits" />
+                        <ImageView fitHeight="38.0" fitWidth="28.0" layoutX="693.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/fichierPDF.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Nouvelle promotion">
+               <content>
+                  <AnchorPane fx:id="listhotelpanel1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="327.0" layoutY="14.0" prefHeight="62.0" prefWidth="106.0" text="Ajouter promotion" />
+                        <Label layoutX="14.0" layoutY="100.0" prefHeight="30.0" prefWidth="170.0" text="Taux de pormotion" />
+                        <TextField fx:id="taux" layoutX="185.0" layoutY="103.0" />
+                        <Label layoutX="366.0" layoutY="101.0" prefHeight="27.0" prefWidth="80.0" text="Date exp" />
+                        <Button fx:id="ajouterpromo" layoutX="677.0" layoutY="102.0" mnemonicParsing="false" onAction="#ajouterpromo" prefHeight="26.0" prefWidth="91.0" text="Ajouter" />
+                        <DatePicker fx:id="date_exp" layoutX="412.0" layoutY="102.0" prefHeight="26.0" prefWidth="211.0" />
+                        <TableView fx:id="tableau" layoutX="32.0" layoutY="260.0" onMouseClicked="#selectpromo" prefHeight="200.0" prefWidth="228.0">
+                          <columns>
+                            <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="pourc" prefWidth="75.0" text="Pourcentage" />
+                              <TableColumn fx:id="dateexp" prefWidth="75.0" text="Date exp" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="suppprom" layoutX="309.0" layoutY="260.0" mnemonicParsing="false" onAction="#supprimerpromo" prefHeight="27.0" prefWidth="129.0" text="Supprimer" />
+                        <Button fx:id="modifprom" layoutX="309.0" layoutY="321.0" mnemonicParsing="false" onAction="#modifierpromo" prefHeight="26.0" prefWidth="130.0" text="Modifier" />
+                        <Label fx:id="idpromo" layoutY="595.0" text="Label" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

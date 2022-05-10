@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="518.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.gui.FrontEventController">
+   <children>
+      <Pane prefHeight="518.0" prefWidth="59.0" />
+      <ScrollPane fx:id="scrollPane" layoutX="72.0" layoutY="74.0" prefHeight="418.0" prefWidth="806.0" style="-fx-background-color: linear-gradient(to right top, #039BE5 , #4DD0E1);" />
+   </children>
+</AnchorPane>
