@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane id="AnchorPane" fx:id="stck" prefHeight="510.0" prefWidth="907.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pidev.gui.BackReservationController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button layoutX="86.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#btnCreateClicked" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: linear-gradient(to right top, #FBAB7E 0%, #F7CE68 100%);" text="Create" textFill="WHITE" />
+            <ComboBox fx:id="ComboUser" layoutX="88.0" layoutY="228.0" prefHeight="31.0" prefWidth="187.0" promptText="User" />
+            <Button layoutX="190.0" layoutY="327.0" mnemonicParsing="false" onMouseClicked="#btnModifierClicked" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: linear-gradient(to right top, #FBAB7E 0%, #F7CE68 100%);" text="Modifier" textFill="WHITE" />
+            <Button layoutX="614.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#btnSupprimerClicked" style="-fx-background-color: linear-gradient(to right top, #FBAB7E 0%, #F7CE68 100%);" text="Supprimer" textFill="WHITE" />
+            <TextField fx:id="txtSearch" layoutX="350.0" layoutY="92.0" promptText="rechercher" />
+            <Button layoutX="548.0" layoutY="92.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to right top, #FBAB7E 0%, #F7CE68 100%);" text="Search" textFill="WHITE" />
+            <Label fx:id="title" alignment="CENTER" prefHeight="47.0" prefWidth="907.0" text="Reservation" textFill="#bfbbd0">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="518.0" prefWidth="59.0" style="-fx-background-color: #767676;">
+               <children>
+                  <Label layoutX="10.0" layoutY="477.0" onMouseClicked="#GOToFront" text="Front" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="47.0" fitWidth="53.0" layoutX="5.0" layoutY="16.0" onMouseClicked="#GoToBackEvent" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/event.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="47.0" fitWidth="53.0" layoutX="6.0" layoutY="79.0" onMouseClicked="#GoToReservationEvent" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/reservation.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <TableView fx:id="TableView" layoutX="303.0" layoutY="142.0" prefHeight="273.0" prefWidth="403.0">
+              <columns>
+                <TableColumn fx:id="col_id" prefWidth="96.0" text="id" />
+                <TableColumn fx:id="col_User" prefWidth="129.0" text="User" />
+                  <TableColumn fx:id="col_Event" prefWidth="110.0" text="Event" />
+              </columns>
+            </TableView>
+            <ImageView fitHeight="47.0" fitWidth="45.0" layoutX="658.0" layoutY="85.0" onMouseClicked="#GeneratePdf" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/fichierPDF.png" />
+               </image>
+            </ImageView>
+            <ComboBox fx:id="ComboEvent" layoutX="88.0" layoutY="279.0" prefHeight="31.0" prefWidth="187.0" promptText="Event" />
+            <Label fx:id="ControleUser" layoutX="88.0" layoutY="256.0" text="obligatory field" textFill="RED" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label fx:id="ControleEvent" layoutX="88.0" layoutY="308.0" text="obligatory field" textFill="RED" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane id="AnchorPane" fx:id="stck" prefHeight="510.0" prefWidth="907.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.pidev.gui.FrontEventController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="title" alignment="CENTER" prefHeight="47.0" prefWidth="907.0" text="Evenement" textFill="#bfbbd0">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="518.0" prefWidth="59.0" style="-fx-background-color: #767676;">
+               <children>
+                  <Label layoutX="10.0" layoutY="477.0" onMouseClicked="#GOToBack" text="Back" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <ScrollPane fx:id="scrollPane" layoutX="72.0" layoutY="74.0" prefHeight="418.0" prefWidth="806.0" style="-fx-background-color: linear-gradient(to right top, #039BE5 , #4DD0E1);" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
